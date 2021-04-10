@@ -20,9 +20,14 @@ and open the template in the editor.
     -fx-effect: dropshadow(three-pass-box,-fx-shadow-color,10,0,0,0);;
 }
 
+.titleBar{
+    -fx-background-color: -fx-first-color;
+}
+
 .slogan{
     -fx-font-size:13px;
-    -fx-text-fill: #777777;
+    -fx-text-fill: white;
+    /*-fx-text-fill: #777777;*/
 }
 
 .text-input{

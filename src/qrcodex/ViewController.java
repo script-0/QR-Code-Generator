@@ -52,11 +52,14 @@ public class ViewController implements Initializable {
     @FXML
     private AnchorPane root;
 
-    @FXML
-    private ImageView about;
-
-    @FXML
-    private ImageView close;
+    /*
+        @FXML
+        private ImageView about;
+    
+    
+        @FXML
+        private ImageView close;
+    */
 
     @FXML
     private JFXTextField text;
@@ -208,9 +211,6 @@ public class ViewController implements Initializable {
                 pop.show(getStage(event));*/
                 Thread thread =  new Thread(() -> {
                     saveQrCodeAsImage();
-                    Platform.runLater(() -> {
-                        message.setText("QrCode generated successfully at \n"+getOutputPath());
-                    });
                 });
                 thread.start();
             }
@@ -244,8 +244,17 @@ public class ViewController implements Initializable {
 
         try {
             ImageIO.write(bImage, format.getValue(), new File(getOutputPath()));
+            
+            Platform.runLater(() -> {
+                message.setText("QrCode generated successfully at \n"+getOutputPath());
+            });
+            
         } catch (IOException ex) {
-           System.out.println(">>Error occured : Line 211 -- Controller ---");
+           System.out.println(">>Error occured : Line 253 -- ViewController > saveQrCodeAsImage() ---");
+           
+            Platform.runLater(() -> {
+                message.setText("An error occur. Contact we at https://github.com/script-0/QR-Code-Generator");
+            });
         }
         
         System.out.println(">>Code successful generated");
@@ -254,7 +263,7 @@ public class ViewController implements Initializable {
     @FXML
     void openLink(ActionEvent event) {
         try {
-            Desktop.getDesktop().mail(new URI("mailto:?to=0.my.script.1@gmail.com&cc=bekolleisaac@gmail.com&subject=QrCodeX User&body=I want to get complete version Of QrCodeX.".replace(" ", "%20")));
+            Desktop.getDesktop().mail(new URI("mailto:?to=0.my.script.1@gmail.com&cc=lab.script0@gmail.com&subject=QrCodeX User&body=I want to get complete version Of QrCodeX.".replace(" ", "%20")));
         } catch (IOException | URISyntaxException ex) {
             System.out.println("Loading email failed");
         }
