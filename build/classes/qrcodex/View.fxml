@@ -155,7 +155,7 @@
                   <Image url="@res/img/qrcodeX.png" />
                </image>
             </ImageView>
-            <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="59.0" prefHeight="93.0" prefWidth="336.0" text="Label" wrapText="true" />
+            <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="59.0" prefHeight="93.0" prefWidth="336.0" text="Label" textAlignment="CENTER" wrapText="true" />
             <Hyperlink fx:id="link" layoutX="31.0" layoutY="157.0" onAction="#openLink" text="Here,">
                <font>
                   <Font size="13.0" />
